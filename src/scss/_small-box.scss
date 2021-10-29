@@ -88,13 +88,14 @@
 
   h3,
   p {
+    position: relative; // z-index requires explicit position
     z-index: 5;
   }
 
   // the icon
   .icon {
     color: rgba($black, .15);
-    z-index: 0;
+
 
     > i {
       font-size: 90px;
@@ -102,6 +103,7 @@
       right: 15px;
       top: 15px;
       transition: transform $lte-transition-speed linear;
+      z-index: 0;
 
       &.inner-icon {
         font-size: 70px;

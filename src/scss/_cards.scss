@@ -215,6 +215,7 @@ html.maximized-card {
   border-bottom: 1px solid $card-border-color;
   padding: (($card-spacer-y * .5) * 2) $card-spacer-x;
   position: relative;
+  overflow: hidden;
 
   @if $enable-rounded {
     @include border-top-radius($border-radius);
@@ -239,13 +240,44 @@ html.maximized-card {
       position: relative;
     }
   }
-}
 
-.card-title {
-  float: left;
-  font-size: $lte-card-title-font-size;
-  font-weight: $lte-card-title-font-weight;
-  margin: 0;
+  .card-title {
+    float: left;
+    //font-size: $lte-card-title-font-size;
+    //font-weight: $lte-card-title-font-weight;
+    margin: 0;
+  }
+
+  // the icon
+  .icon {
+    color: rgba($black, .33);
+
+    ~ .card-tools {
+      margin-right: 85px;
+    }
+
+    > i {
+      font-size: 90px;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      transition: transform $lte-transition-speed linear;
+      z-index: 0;
+
+      &.inner-icon {
+        font-size: 70px;
+        top: 20px;
+      }
+    }
+
+    svg {
+      font-size: 70px;
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      transition: transform $lte-transition-speed linear;
+    }
+  }
 }
 
 .card-text {

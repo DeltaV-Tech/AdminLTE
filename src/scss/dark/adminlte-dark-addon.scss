@@ -64,6 +64,9 @@
 // AdminLTE dark
 @import "variables-alt";
 @import "../mixins";
+@import "mixins";
 @import "parts/core";
 @import "parts/components";
 @import "parts/extra-components";
+//@import "parts/pages";
+@import "parts/miscellaneous";

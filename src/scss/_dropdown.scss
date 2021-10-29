@@ -242,4 +242,20 @@
     margin-top: -2px;
     width: $lte-sidebar-user-image-width;
   }
+
+  .user-image-square {
+    @include media-breakpoint-up(sm) {
+      float: none;
+      line-height: 10px;
+      margin-right: .4rem;
+      margin-top: -8px;
+    }
+
+    border-radius: 5%;
+    float: left;
+    height: $lte-sidebar-user-image-width;
+    // margin-right: 10px;
+    margin-top: -2px;
+    width: $lte-sidebar-user-image-width;
+  }
 }

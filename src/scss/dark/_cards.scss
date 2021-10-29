@@ -1,10 +1,10 @@
 // Color variants
 @each $name, $color in $theme-colors-alt {
-  @include cards-variant($name, $color);
+  @include cards-variant-alt($name, $color);
 }
 
 @each $name, $color in $colors-alt {
-  @include cards-variant($name, $color);
+  @include cards-variant-alt($name, $color);
 }
 
 .card {

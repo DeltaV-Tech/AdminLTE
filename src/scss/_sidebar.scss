@@ -9,3 +9,42 @@
   @include scrollbar-color-gray();
   @include scrollbar-width-thin();
 }
+
+// Sidebar user panel
+.user-panel {
+  position: relative;
+
+  [class*="sidebar-bg-dark"] & {
+    border-bottom: 1px solid lighten($dark, 12%);
+  }
+
+  [class*="sidebar-bg-light"] & {
+    border-bottom: 1px solid $gray-300;
+  }
+
+  &,
+  .info {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .image {
+    display: inline-block;
+    padding-left: $nav-link-padding-x - .2;
+  }
+
+  img {
+    height: auto;
+    width: $lte-sidebar-user-image-width;
+  }
+
+  .info {
+    display: inline-block;
+    padding: 5px 5px 5px 10px;
+  }
+
+  .status,
+  .dropdown-menu {
+    font-size: $font-size-sm;
+  }
+}
