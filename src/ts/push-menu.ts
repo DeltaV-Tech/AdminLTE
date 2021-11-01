@@ -138,7 +138,9 @@ class PushMenu {
 
     if (widthOutput >= Defaults.onLayouMobile) {
       bodyClass.remove(CLASS_NAME_LAYOUT_MOBILE)
-      this.expand()
+      if (!this._bodyClass.contains(CLASS_NAME_SIDEBAR_CLOSE)) {
+        this.expand()
+      }
     }
   }
 
