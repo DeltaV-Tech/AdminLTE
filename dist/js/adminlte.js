@@ -159,7 +159,7 @@
     const SELECTOR_SIDEBAR_SM = `.${CLASS_NAME_LAYOUT_MOBILE}`;
     const SELECTOR_CONTENT_WRAPPER = '.content-wrapper';
     const Defaults = {
-        onLayouMobile: 992
+        onLayoutMobile: 992
     };
     /**
      * Class Definition
@@ -230,12 +230,13 @@
         addSidebaBreakPoint() {
             const bodyClass = document.body.classList;
             const widthOutput = window.innerWidth;
-            if (widthOutput < Defaults.onLayouMobile) {
+            if (widthOutput < Defaults.onLayoutMobile) {
                 bodyClass.add(CLASS_NAME_LAYOUT_MOBILE);
             }
-            if (widthOutput >= Defaults.onLayouMobile) {
+            if (widthOutput >= Defaults.onLayoutMobile) {
                 bodyClass.remove(CLASS_NAME_LAYOUT_MOBILE);
-                if (!this._bodyClass.contains(CLASS_NAME_SIDEBAR_CLOSE)) {
+                if (!this._bodyClass.contains(CLASS_NAME_SIDEBAR_CLOSE) &&
+                    !this._bodyClass.contains(CLASS_NAME_SIDEBAR_COLLAPSE)) {
                     this.expand();
                 }
             }
@@ -250,7 +251,7 @@
         }
         closeSidebar() {
             const widthOutput = window.innerWidth;
-            if (widthOutput < Defaults.onLayouMobile) {
+            if (widthOutput < Defaults.onLayoutMobile) {
                 document.body.classList.add(CLASS_NAME_SIDEBAR_CLOSE);
             }
         }
