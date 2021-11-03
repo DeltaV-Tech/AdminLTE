@@ -139,6 +139,7 @@
      * Constants
      * ------------------------------------------------------------------------
      */
+    const CLASS_NAME_PUSHMENU_INIT = 'pushmenu';
     const CLASS_NAME_SIDEBAR_MINI = 'sidebar-mini';
     const CLASS_NAME_SIDEBAR_MINI_HAD = 'sidebar-mini-had';
     const CLASS_NAME_SIDEBAR_HORIZONTAL = 'sidebar-horizontal';
@@ -150,6 +151,7 @@
     const CLASS_NAME_SIDEBAR_IS_HOVER = 'sidebar-is-hover';
     const CLASS_NAME_MENU_OPEN$1 = 'menu-open';
     const CLASS_NAME_LAYOUT_MOBILE = 'layout-mobile';
+    const SELECTOR_PUSHMENU_INIT = `.${CLASS_NAME_PUSHMENU_INIT}`;
     const SELECTOR_SIDEBAR = '.sidebar';
     const SELECTOR_NAV_SIDEBAR = '.nav-sidebar';
     const SELECTOR_NAV_ITEM$1 = '.nav-item';
@@ -158,7 +160,6 @@
     const SELECTOR_FULL_TOGGLE = '[data-lte-toggle="sidebar-full"]';
     const SELECTOR_SIDEBAR_SM = `.${CLASS_NAME_LAYOUT_MOBILE}`;
     const SELECTOR_CONTENT_WRAPPER = '.content-wrapper';
-    const SELECTOR_PUSHMENU_INIT = '.pushmenu';
     const Defaults = {
         onLayoutMobile: 992
     };
@@ -284,6 +285,9 @@
             if (document.querySelector(SELECTOR_PUSHMENU_INIT)) {
                 return;
             }
+            if (!document.querySelector(SELECTOR_SIDEBAR)) {
+                return;
+            }
             this.addSidebaBreakPoint();
             this.sidebarHover();
             const selSidebarSm = document.querySelector(SELECTOR_SIDEBAR_SM);
@@ -293,7 +297,7 @@
                 selContentWrapper.addEventListener('click', this.removeOverlaySidebar);
             }
             this.closeSidebar();
-            document.body.classList.add(SELECTOR_PUSHMENU_INIT);
+            document.body.classList.add(CLASS_NAME_PUSHMENU_INIT);
         }
     }
     /**
