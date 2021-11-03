@@ -15,6 +15,7 @@ import {
  * ------------------------------------------------------------------------
  */
 
+const CLASS_NAME_PUSHMENU_INIT = 'pushmenu'
 const CLASS_NAME_SIDEBAR_MINI = 'sidebar-mini'
 const CLASS_NAME_SIDEBAR_MINI_HAD = 'sidebar-mini-had'
 const CLASS_NAME_SIDEBAR_HORIZONTAL = 'sidebar-horizontal'
@@ -27,6 +28,7 @@ const CLASS_NAME_SIDEBAR_IS_HOVER = 'sidebar-is-hover'
 const CLASS_NAME_MENU_OPEN = 'menu-open'
 const CLASS_NAME_LAYOUT_MOBILE = 'layout-mobile'
 
+const SELECTOR_PUSHMENU_INIT = `.${CLASS_NAME_PUSHMENU_INIT}`
 const SELECTOR_SIDEBAR = '.sidebar'
 const SELECTOR_NAV_SIDEBAR = '.nav-sidebar'
 const SELECTOR_NAV_ITEM = '.nav-item'
@@ -36,7 +38,7 @@ const SELECTOR_FULL_TOGGLE = '[data-lte-toggle="sidebar-full"]'
 const SELECTOR_SIDEBAR_SM = `.${CLASS_NAME_LAYOUT_MOBILE}`
 const SELECTOR_CONTENT_WRAPPER = '.content-wrapper'
 
-const SELECTOR_PUSHMENU_INIT = '.pushmenu'
+
 
 const Defaults = {
   onLayoutMobile: 992
@@ -194,6 +196,10 @@ class PushMenu {
       return
     }
 
+    if (!document.querySelector(SELECTOR_SIDEBAR)) {
+      return
+    }
+
     this.addSidebaBreakPoint()
     this.sidebarHover()
 
@@ -207,7 +213,7 @@ class PushMenu {
 
     this.closeSidebar()
 
-    document.body.classList.add(SELECTOR_PUSHMENU_INIT)
+    document.body.classList.add(CLASS_NAME_PUSHMENU_INIT)
   }
 }
 
