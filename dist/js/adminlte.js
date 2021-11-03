@@ -139,7 +139,7 @@
      * Constants
      * ------------------------------------------------------------------------
      */
-    const CLASS_NAME_PUSHMENU_INIT = 'pushmenu';
+    const CLASS_NAME_PUSHMENU_INIT = 'pushmenu-init';
     const CLASS_NAME_SIDEBAR_MINI = 'sidebar-mini';
     const CLASS_NAME_SIDEBAR_MINI_HAD = 'sidebar-mini-had';
     const CLASS_NAME_SIDEBAR_HORIZONTAL = 'sidebar-horizontal';
@@ -331,7 +331,7 @@
                 event.preventDefault();
                 let button = event.currentTarget;
                 if ((button === null || button === void 0 ? void 0 : button.dataset.lteToggle) !== 'sidebar-mini') {
-                    button = button === null || button === void 0 ? void 0 : button.closest(SELECTOR_FULL_TOGGLE);
+                    button = button === null || button === void 0 ? void 0 : button.closest(SELECTOR_MINI_TOGGLE);
                 }
                 if (button) {
                     const data = new PushMenu(button, null);

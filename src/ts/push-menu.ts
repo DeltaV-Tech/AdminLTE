@@ -15,7 +15,7 @@ import {
  * ------------------------------------------------------------------------
  */
 
-const CLASS_NAME_PUSHMENU_INIT = 'pushmenu'
+const CLASS_NAME_PUSHMENU_INIT = 'pushmenu-init'
 const CLASS_NAME_SIDEBAR_MINI = 'sidebar-mini'
 const CLASS_NAME_SIDEBAR_MINI_HAD = 'sidebar-mini-had'
 const CLASS_NAME_SIDEBAR_HORIZONTAL = 'sidebar-horizontal'
@@ -256,7 +256,7 @@ domReady(() => {
 
       let button = event.currentTarget as HTMLElement | null | undefined
       if (button?.dataset.lteToggle !== 'sidebar-mini') {
-        button = button?.closest(SELECTOR_FULL_TOGGLE)
+        button = button?.closest(SELECTOR_MINI_TOGGLE)
       }
 
       if (button) {
