@@ -11904,6 +11904,151 @@ textarea.form-control-lg {
   margin-right: calc(var(--lte-sidebar-width) * -1);
 }
 
+html.control-sidebar-animate {
+  overflow-x: hidden;
+}
+
+.control-sidebar {
+  bottom: calc(3.5rem + 1px);
+  position: absolute;
+  top: calc(3.5rem + 1px);
+  z-index: 1031;
+}
+.control-sidebar, .control-sidebar::before {
+  bottom: calc(3.5rem + 1px);
+  display: none;
+  left: -var(--lte-sidebar-width);
+  width: var(--lte-sidebar-width);
+  transition: left 0.3s ease-in-out, display 0.3s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .control-sidebar, .control-sidebar::before {
+    transition: none;
+  }
+}
+.control-sidebar::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+
+body.text-sm .control-sidebar {
+  bottom: calc(2.9365rem + 1px);
+  top: calc(2.7185rem + 1px);
+}
+
+.main-header.text-sm ~ .control-sidebar {
+  top: calc(2.7185rem + 1px);
+}
+
+.main-footer.text-sm ~ .control-sidebar {
+  bottom: calc(2.9365rem + 1px);
+}
+
+.control-sidebar-push-slide .content-wrapper,
+.control-sidebar-push-slide .main-footer {
+  transition: margin-left 0.3s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .control-sidebar-push-slide .content-wrapper,
+.control-sidebar-push-slide .main-footer {
+    transition: none;
+  }
+}
+
+.control-sidebar-open .control-sidebar {
+  display: block !important;
+}
+.control-sidebar-open .control-sidebar, .control-sidebar-open .control-sidebar::before {
+  left: 0;
+}
+.control-sidebar-open.control-sidebar-push .content-wrapper,
+.control-sidebar-open.control-sidebar-push .main-footer, .control-sidebar-open.control-sidebar-push-slide .content-wrapper,
+.control-sidebar-open.control-sidebar-push-slide .main-footer {
+  margin-left: var(--lte-sidebar-width);
+}
+
+.control-sidebar-slide-open .control-sidebar {
+  display: block;
+}
+.control-sidebar-slide-open .control-sidebar, .control-sidebar-slide-open .control-sidebar::before {
+  left: 0;
+  transition: left 0.3s ease-in-out, display 0.3s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .control-sidebar-slide-open .control-sidebar, .control-sidebar-slide-open .control-sidebar::before {
+    transition: none;
+  }
+}
+.control-sidebar-slide-open.control-sidebar-push .content-wrapper,
+.control-sidebar-slide-open.control-sidebar-push .main-footer, .control-sidebar-slide-open.control-sidebar-push-slide .content-wrapper,
+.control-sidebar-slide-open.control-sidebar-push-slide .main-footer {
+  margin-left: var(--lte-sidebar-width);
+}
+
+.control-sidebar-dark {
+  background-color: var(--lte-sidebar-dark-bg);
+}
+.control-sidebar-dark,
+.control-sidebar-dark a,
+.control-sidebar-dark .nav-link {
+  color: var(--lte-sidebar-dark-color);
+}
+.control-sidebar-dark a:hover {
+  color: var(--lte-sidebar-dark-hover-color);
+}
+.control-sidebar-dark h1, .control-sidebar-dark .h1,
+.control-sidebar-dark h2,
+.control-sidebar-dark .h2,
+.control-sidebar-dark h3,
+.control-sidebar-dark .h3,
+.control-sidebar-dark h4,
+.control-sidebar-dark .h4,
+.control-sidebar-dark h5,
+.control-sidebar-dark .h5,
+.control-sidebar-dark h6,
+.control-sidebar-dark .h6,
+.control-sidebar-dark label {
+  color: var(--lte-sidebar-dark-hover-color);
+}
+.control-sidebar-dark .nav-tabs {
+  background-color: var(--lte-sidebar-dark-hover-bg);
+  border-bottom: 0;
+  margin-bottom: 5px;
+}
+.control-sidebar-dark .nav-tabs .nav-item {
+  margin: 0;
+}
+.control-sidebar-dark .nav-tabs .nav-link {
+  border-radius: 0;
+  padding: 10px 20px;
+  position: relative;
+  text-align: center;
+}
+.control-sidebar-dark .nav-tabs .nav-link, .control-sidebar-dark .nav-tabs .nav-link:hover, .control-sidebar-dark .nav-tabs .nav-link:active, .control-sidebar-dark .nav-tabs .nav-link:focus, .control-sidebar-dark .nav-tabs .nav-link.active {
+  border: 0;
+}
+.control-sidebar-dark .nav-tabs .nav-link:hover, .control-sidebar-dark .nav-tabs .nav-link:active, .control-sidebar-dark .nav-tabs .nav-link:focus, .control-sidebar-dark .nav-tabs .nav-link.active {
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  color: var(--lte-sidebar-dark-hover-color);
+}
+.control-sidebar-dark .nav-tabs .nav-link.active {
+  background-color: var(--lte-sidebar-dark-bg);
+}
+.control-sidebar-dark .tab-pane {
+  padding: 10px 15px;
+}
+
+.control-sidebar-light {
+  color: #343a40;
+  background-color: var(--lte-sidebar-light-bg);
+  border-right: 1px solid #dee2e6;
+}
+
 .content-wrapper {
   grid-area: content-wrapper;
   background-color: #f4f6f9;
