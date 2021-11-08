@@ -223,7 +223,6 @@ const copyDistJs = () =>
   }))
 
 // Minify JS
-// Need to add terser
 const minifyDistJs = () =>
   src(paths.dist.js + '/adminlte.js', { sourcemaps: true })
     .pipe(terser({

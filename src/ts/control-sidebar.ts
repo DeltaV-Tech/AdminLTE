@@ -35,7 +35,7 @@ const SELECTOR_CONTROL_SIDEBAR = '.control-sidebar'
 // const SELECTOR_NAV_TREEVIEW = '.nav-treeview'
 const SELECTOR_MINI_TOGGLE = '[data-lte-toggle="control-sidebar-mini"]'
 const SELECTOR_FULL_TOGGLE = '[data-lte-toggle="control-sidebar-full"]'
-const SELECTOR_SIDEBAR_SM = `.${CLASS_NAME_LAYOUT_MOBILE}`
+const SELECTOR_CONTROL_SIDEBAR_SM = `.${CLASS_NAME_LAYOUT_MOBILE}`
 const SELECTOR_CONTENT_WRAPPER = '.content-wrapper'
 
 const Defaults = {
@@ -201,7 +201,7 @@ class ControlSidebar {
     this.addSidebaBreakPoint()
     // this.sidebarHover()
 
-    const selSidebarSm = document.querySelector(SELECTOR_SIDEBAR_SM)
+    const selSidebarSm = document.querySelector(SELECTOR_CONTROL_SIDEBAR_SM)
     const selContentWrapper = selSidebarSm?.querySelector(SELECTOR_CONTENT_WRAPPER)
 
     if (selContentWrapper) {
@@ -237,7 +237,7 @@ domReady(() => {
 
       let button = event.currentTarget as HTMLElement | null | undefined
 
-      if (button?.dataset.lteToggle !== 'sidebar-full') {
+      if (button?.dataset.lteToggle !== 'control-sidebar-full') {
         button = button?.closest(SELECTOR_FULL_TOGGLE)
       }
 
@@ -255,7 +255,7 @@ domReady(() => {
       event.preventDefault()
 
       let button = event.currentTarget as HTMLElement | null | undefined
-      if (button?.dataset.lteToggle !== 'sidebar-mini') {
+      if (button?.dataset.lteToggle !== 'control-sidebar-mini') {
         button = button?.closest(SELECTOR_MINI_TOGGLE)
       }
 
