@@ -231,7 +231,8 @@ const minifyDistJs = () =>
         passes: 2
       }
     }))
-    .pipe(dest(paths.dist.js + '/adminlte.min.js'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest(paths.dist.js))
 
 // Copy assets
 const copyDistAssets = () => src(paths.src.assets)
