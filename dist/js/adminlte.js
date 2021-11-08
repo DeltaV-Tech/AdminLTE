@@ -150,17 +150,17 @@
     const CLASS_NAME_SIDEBAR_COLLAPSING = 'sidebar-is-collapsing';
     const CLASS_NAME_SIDEBAR_IS_HOVER = 'sidebar-is-hover';
     const CLASS_NAME_MENU_OPEN$1 = 'menu-open';
-    const CLASS_NAME_LAYOUT_MOBILE = 'layout-mobile';
+    const CLASS_NAME_LAYOUT_MOBILE$1 = 'layout-mobile';
     const SELECTOR_PUSHMENU_INIT = `.${CLASS_NAME_PUSHMENU_INIT}`;
     const SELECTOR_SIDEBAR = '.sidebar';
     const SELECTOR_NAV_SIDEBAR = '.nav-sidebar';
     const SELECTOR_NAV_ITEM$1 = '.nav-item';
     const SELECTOR_NAV_TREEVIEW = '.nav-treeview';
-    const SELECTOR_MINI_TOGGLE = '[data-lte-toggle="sidebar-mini"]';
-    const SELECTOR_FULL_TOGGLE = '[data-lte-toggle="sidebar-full"]';
-    const SELECTOR_SIDEBAR_SM = `.${CLASS_NAME_LAYOUT_MOBILE}`;
-    const SELECTOR_CONTENT_WRAPPER = '.content-wrapper';
-    const Defaults = {
+    const SELECTOR_MINI_TOGGLE$1 = '[data-lte-toggle="sidebar-mini"]';
+    const SELECTOR_FULL_TOGGLE$1 = '[data-lte-toggle="sidebar-full"]';
+    const SELECTOR_SIDEBAR_SM = `.${CLASS_NAME_LAYOUT_MOBILE$1}`;
+    const SELECTOR_CONTENT_WRAPPER$1 = '.content-wrapper';
+    const Defaults$1 = {
         onLayoutMobile: 992
     };
     /**
@@ -232,11 +232,11 @@
         addSidebaBreakPoint() {
             const bodyClass = document.body.classList;
             const widthOutput = window.innerWidth;
-            if (widthOutput < Defaults.onLayoutMobile) {
-                bodyClass.add(CLASS_NAME_LAYOUT_MOBILE);
+            if (widthOutput < Defaults$1.onLayoutMobile) {
+                bodyClass.add(CLASS_NAME_LAYOUT_MOBILE$1);
             }
-            if (widthOutput >= Defaults.onLayoutMobile) {
-                bodyClass.remove(CLASS_NAME_LAYOUT_MOBILE);
+            if (widthOutput >= Defaults$1.onLayoutMobile) {
+                bodyClass.remove(CLASS_NAME_LAYOUT_MOBILE$1);
                 if (!this._bodyClass.contains(CLASS_NAME_SIDEBAR_CLOSE) &&
                     !this._bodyClass.contains(CLASS_NAME_SIDEBAR_COLLAPSE)) {
                     this.expand();
@@ -245,7 +245,7 @@
         }
         removeOverlaySidebar() {
             const bodyClass = document.body.classList;
-            if (bodyClass.contains(CLASS_NAME_LAYOUT_MOBILE)) {
+            if (bodyClass.contains(CLASS_NAME_LAYOUT_MOBILE$1)) {
                 bodyClass.remove(CLASS_NAME_SIDEBAR_OPEN);
                 bodyClass.remove(CLASS_NAME_SIDEBAR_COLLAPSE);
                 bodyClass.add(CLASS_NAME_SIDEBAR_CLOSE);
@@ -253,7 +253,7 @@
         }
         closeSidebar() {
             const widthOutput = window.innerWidth;
-            if (widthOutput < Defaults.onLayoutMobile) {
+            if (widthOutput < Defaults$1.onLayoutMobile) {
                 document.body.classList.add(CLASS_NAME_SIDEBAR_CLOSE);
             }
         }
@@ -291,7 +291,7 @@
             this.addSidebaBreakPoint();
             this.sidebarHover();
             const selSidebarSm = document.querySelector(SELECTOR_SIDEBAR_SM);
-            const selContentWrapper = selSidebarSm === null || selSidebarSm === void 0 ? void 0 : selSidebarSm.querySelector(SELECTOR_CONTENT_WRAPPER);
+            const selContentWrapper = selSidebarSm === null || selSidebarSm === void 0 ? void 0 : selSidebarSm.querySelector(SELECTOR_CONTENT_WRAPPER$1);
             if (selContentWrapper) {
                 selContentWrapper.addEventListener('touchstart', this.removeOverlaySidebar);
                 selContentWrapper.addEventListener('click', this.removeOverlaySidebar);
@@ -311,13 +311,13 @@
         window.addEventListener('resize', () => {
             data.init();
         });
-        const fullBtn = document.querySelectorAll(SELECTOR_FULL_TOGGLE);
+        const fullBtn = document.querySelectorAll(SELECTOR_FULL_TOGGLE$1);
         for (const btn of fullBtn) {
             btn.addEventListener('click', event => {
                 event.preventDefault();
                 let button = event.currentTarget;
                 if ((button === null || button === void 0 ? void 0 : button.dataset.lteToggle) !== 'sidebar-full') {
-                    button = button === null || button === void 0 ? void 0 : button.closest(SELECTOR_FULL_TOGGLE);
+                    button = button === null || button === void 0 ? void 0 : button.closest(SELECTOR_FULL_TOGGLE$1);
                 }
                 if (button) {
                     const data = new PushMenu(button, null);
@@ -325,13 +325,13 @@
                 }
             });
         }
-        const miniBtn = document.querySelectorAll(SELECTOR_MINI_TOGGLE);
+        const miniBtn = document.querySelectorAll(SELECTOR_MINI_TOGGLE$1);
         for (const btn of miniBtn) {
             btn.addEventListener('click', event => {
                 event.preventDefault();
                 let button = event.currentTarget;
                 if ((button === null || button === void 0 ? void 0 : button.dataset.lteToggle) !== 'sidebar-mini') {
-                    button = button === null || button === void 0 ? void 0 : button.closest(SELECTOR_MINI_TOGGLE);
+                    button = button === null || button === void 0 ? void 0 : button.closest(SELECTOR_MINI_TOGGLE$1);
                 }
                 if (button) {
                     const data = new PushMenu(button, null);
@@ -664,7 +664,226 @@
         }
     });
 
+    /**
+     * --------------------------------------------
+     * AdminLTE control-sidebar.ts
+     * License MIT
+     * --------------------------------------------
+     */
+    /**
+     * ------------------------------------------------------------------------
+     * Constants
+     * ------------------------------------------------------------------------
+     */
+    const CLASS_NAME_CONTROL_SIDEBAR_INIT = 'control-sidebar-init';
+    const CLASS_NAME_CONTROL_SIDEBAR_MINI = 'control-sidebar-mini';
+    const CLASS_NAME_CONTROL_SIDEBAR_MINI_HAD = 'control-sidebar-mini-had';
+    // const CLASS_NAME_CONTROL_SIDEBAR_HORIZONTAL = 'sidebar-horizontal'
+    const CLASS_NAME_CONTROL_SIDEBAR_COLLAPSE = 'control-sidebar-collapse';
+    const CLASS_NAME_CONTROL_SIDEBAR_CLOSE = 'control-sidebar-close';
+    const CLASS_NAME_CONTROL_SIDEBAR_OPEN = 'control-sidebar-open';
+    const CLASS_NAME_CONTROL_SIDEBAR_COLLAPSING = 'control-sidebar-is-collapsing';
+    // const CLASS_NAME_CONTROL_SIDEBAR_CLOSING = 'control-sidebar-is-closing'
+    const CLASS_NAME_CONTROL_SIDEBAR_OPENING = 'control-sidebar-is-opening';
+    // const CLASS_NAME_CONTROL_SIDEBAR_IS_HOVER = 'sidebar-is-hover'
+    const CLASS_NAME_LAYOUT_MOBILE = 'layout-mobile';
+    const SELECTOR_CONTROL_SIDEBAR_INIT = `.${CLASS_NAME_CONTROL_SIDEBAR_INIT}`;
+    const SELECTOR_CONTROL_SIDEBAR = '.control-sidebar';
+    // const SELECTOR_NAV_SIDEBAR = '.nav-sidebar'
+    // const SELECTOR_NAV_ITEM = '.nav-item'
+    // const SELECTOR_NAV_TREEVIEW = '.nav-treeview'
+    const SELECTOR_MINI_TOGGLE = '[data-lte-toggle="control-sidebar-mini"]';
+    const SELECTOR_FULL_TOGGLE = '[data-lte-toggle="control-sidebar-full"]';
+    const SELECTOR_CONTROL_SIDEBAR_SM = `.${CLASS_NAME_LAYOUT_MOBILE}`;
+    const SELECTOR_CONTENT_WRAPPER = '.content-wrapper';
+    const Defaults = {
+        onLayoutMobile: 992
+    };
+    /**
+     * Class Definition
+     * ====================================================
+     */
+    class ControlSidebar {
+        constructor(element, config) {
+            this._element = element;
+            const bodyElement = document.body;
+            this._bodyClass = bodyElement.classList;
+            this._config = config;
+        }
+        sidebarOpening() {
+            this._bodyClass.add(CLASS_NAME_CONTROL_SIDEBAR_OPENING);
+            setTimeout(() => {
+                this._bodyClass.remove(CLASS_NAME_CONTROL_SIDEBAR_OPENING);
+            }, 1000);
+        }
+        sidebarColllapsing() {
+            this._bodyClass.add(CLASS_NAME_CONTROL_SIDEBAR_COLLAPSING);
+            setTimeout(() => {
+                this._bodyClass.remove(CLASS_NAME_CONTROL_SIDEBAR_COLLAPSING);
+            }, 1000);
+        }
+        // menusClose(): void {
+        //   const navTreeview = document.querySelectorAll<HTMLElement>(SELECTOR_NAV_TREEVIEW)
+        //
+        //   for (const navTree of navTreeview) {
+        //     navTree.style.removeProperty('display')
+        //     navTree.style.removeProperty('height')
+        //   }
+        //
+        //   const navSidebar = document.querySelector(SELECTOR_NAV_SIDEBAR)
+        //   const navItem = navSidebar?.querySelectorAll(SELECTOR_NAV_ITEM)
+        //
+        //   if (navItem) {
+        //     for (const navI of navItem) {
+        //       navI.classList.remove(CLASS_NAME_MENU_OPEN)
+        //     }
+        //   }
+        // }
+        expand() {
+            this.sidebarOpening();
+            this._bodyClass.remove(CLASS_NAME_CONTROL_SIDEBAR_CLOSE);
+            this._bodyClass.remove(CLASS_NAME_CONTROL_SIDEBAR_COLLAPSE);
+            this._bodyClass.add(CLASS_NAME_CONTROL_SIDEBAR_OPEN);
+        }
+        collapse() {
+            this.sidebarColllapsing();
+            this._bodyClass.add(CLASS_NAME_CONTROL_SIDEBAR_COLLAPSE);
+        }
+        close() {
+            this._bodyClass.add(CLASS_NAME_CONTROL_SIDEBAR_CLOSE);
+            this._bodyClass.remove(CLASS_NAME_CONTROL_SIDEBAR_OPEN);
+            // this._bodyClass.remove(CLASS_NAME_SIDEBAR_COLLAPSE)
+            // if (this._bodyClass.contains(CLASS_NAME_SIDEBAR_HORIZONTAL)) {
+            //   this.menusClose()
+            // }
+        }
+        // sidebarHover(): void {
+        //   const selSidebar = document.querySelector(SELECTOR_SIDEBAR)
+        //
+        //   if (selSidebar) {
+        //     selSidebar.addEventListener('mouseover', () => {
+        //       this._bodyClass.add(CLASS_NAME_SIDEBAR_IS_HOVER)
+        //     })
+        //
+        //     selSidebar.addEventListener('mouseout', () => {
+        //       this._bodyClass.remove(CLASS_NAME_SIDEBAR_IS_HOVER)
+        //     })
+        //   }
+        // }
+        addSidebaBreakPoint() {
+            const bodyClass = document.body.classList;
+            const widthOutput = window.innerWidth;
+            if (widthOutput < Defaults.onLayoutMobile) {
+                bodyClass.add(CLASS_NAME_LAYOUT_MOBILE);
+            }
+            if (widthOutput >= Defaults.onLayoutMobile) {
+                bodyClass.remove(CLASS_NAME_LAYOUT_MOBILE);
+                if (!this._bodyClass.contains(CLASS_NAME_CONTROL_SIDEBAR_CLOSE) &&
+                    !this._bodyClass.contains(CLASS_NAME_CONTROL_SIDEBAR_COLLAPSE)) {
+                    this.expand();
+                }
+            }
+        }
+        removeOverlaySidebar() {
+            const bodyClass = document.body.classList;
+            if (bodyClass.contains(CLASS_NAME_LAYOUT_MOBILE)) {
+                bodyClass.remove(CLASS_NAME_CONTROL_SIDEBAR_OPEN);
+                bodyClass.remove(CLASS_NAME_CONTROL_SIDEBAR_COLLAPSE);
+                bodyClass.add(CLASS_NAME_CONTROL_SIDEBAR_CLOSE);
+            }
+        }
+        closeSidebar() {
+            const widthOutput = window.innerWidth;
+            if (widthOutput < Defaults.onLayoutMobile) {
+                document.body.classList.add(CLASS_NAME_CONTROL_SIDEBAR_CLOSE);
+            }
+        }
+        toggleFull() {
+            if (this._bodyClass.contains(CLASS_NAME_CONTROL_SIDEBAR_CLOSE)) {
+                this.expand();
+            }
+            else {
+                this.close();
+            }
+            if (this._bodyClass.contains(CLASS_NAME_CONTROL_SIDEBAR_MINI)) {
+                this._bodyClass.remove(CLASS_NAME_CONTROL_SIDEBAR_MINI);
+                this._bodyClass.add(CLASS_NAME_CONTROL_SIDEBAR_MINI_HAD);
+            }
+        }
+        toggleMini() {
+            if (this._bodyClass.contains(CLASS_NAME_CONTROL_SIDEBAR_MINI_HAD)) {
+                this._bodyClass.remove(CLASS_NAME_CONTROL_SIDEBAR_MINI_HAD);
+                this._bodyClass.add(CLASS_NAME_CONTROL_SIDEBAR_MINI);
+            }
+            if (this._bodyClass.contains(CLASS_NAME_CONTROL_SIDEBAR_COLLAPSE)) {
+                this.expand();
+            }
+            else {
+                this.collapse();
+            }
+        }
+        init() {
+            if (document.querySelector(SELECTOR_CONTROL_SIDEBAR_INIT)) {
+                return;
+            }
+            if (!document.querySelector(SELECTOR_CONTROL_SIDEBAR)) {
+                return;
+            }
+            this.addSidebaBreakPoint();
+            // this.sidebarHover()
+            const selSidebarSm = document.querySelector(SELECTOR_CONTROL_SIDEBAR_SM);
+            const selContentWrapper = selSidebarSm === null || selSidebarSm === void 0 ? void 0 : selSidebarSm.querySelector(SELECTOR_CONTENT_WRAPPER);
+            if (selContentWrapper) {
+                selContentWrapper.addEventListener('touchstart', this.removeOverlaySidebar);
+                selContentWrapper.addEventListener('click', this.removeOverlaySidebar);
+            }
+            this.closeSidebar();
+            document.body.classList.add(SELECTOR_CONTROL_SIDEBAR_INIT);
+        }
+    }
+    /**
+     * ------------------------------------------------------------------------
+     * Data Api implementation
+     * ------------------------------------------------------------------------
+     */
+    domReady(() => {
+        const data = new ControlSidebar(null, null);
+        data.init();
+        window.addEventListener('resize', () => {
+            data.init();
+        });
+        const fullBtn = document.querySelectorAll(SELECTOR_FULL_TOGGLE);
+        for (const btn of fullBtn) {
+            btn.addEventListener('click', event => {
+                event.preventDefault();
+                let button = event.currentTarget;
+                if ((button === null || button === void 0 ? void 0 : button.dataset.lteToggle) !== 'control-sidebar-full') {
+                    button = button === null || button === void 0 ? void 0 : button.closest(SELECTOR_FULL_TOGGLE);
+                }
+                if (button) {
+                    const data = new ControlSidebar(button, null);
+                    data.toggleFull();
+                }
+            });
+        }
+        const miniBtn = document.querySelectorAll(SELECTOR_MINI_TOGGLE);
+        for (const btn of miniBtn) {
+            btn.addEventListener('click', event => {
+                event.preventDefault();
+                let button = event.currentTarget;
+                if ((button === null || button === void 0 ? void 0 : button.dataset.lteToggle) !== 'control-sidebar-mini') {
+                    button = button === null || button === void 0 ? void 0 : button.closest(SELECTOR_MINI_TOGGLE);
+                }
+                if (button) {
+                    const data = new ControlSidebar(button, null);
+                    data.toggleMini();
+                }
+            });
+        }
+    });
+
     exports.CardWidget = CardWidget;
+    exports.ControlSidebar = ControlSidebar;
     exports.DirectChat = DirectChat;
     exports.Layout = Layout;
     exports.PushMenu = PushMenu;
