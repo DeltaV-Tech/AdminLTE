@@ -223,15 +223,10 @@ const copyDistJs = () =>
   }))
 
 // Minify JS
-const minifyDistJs = () =>
-  src(paths.dist.js + '/adminlte.js', { sourcemaps: true })
-    .pipe(terser({
-      compress: {
-        passes: 2
-      }
-    }))
+const minifyDistJs = () => src(paths.dist.js + '/adminlte.js', { sourcemaps: true })
+    .pipe(terser({ compress: { passes: 2 } }))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(dest(paths.dist.js))
+    .pipe(dest(paths.dist.js, { sourcemaps: '.' }))
 
 // Copy assets
 const copyDistAssets = () => src(paths.src.assets)
