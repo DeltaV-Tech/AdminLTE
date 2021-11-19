@@ -211,7 +211,7 @@ class ControlSidebar {
 
     this.closeSidebar()
 
-    document.body.classList.add(SELECTOR_CONTROL_SIDEBAR_INIT)
+    document.body.classList.add(CLASS_NAME_CONTROL_SIDEBAR_INIT)
   }
 }
 
